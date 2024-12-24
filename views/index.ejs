@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1> MAKE YOUR TODO LIST..</h1>
+    <form method="post" action="/tasks">
+        <input class="task" type="text" name="task" placeholder="Write task here.">
+        <button>Add</button>
+    </form>
+    <br><br>
+    <% for(t of tasks) { %>
+        <div class="lists">
+            <form method="post" action="/tasks/<%= t.id %>/?_method=DELETE">
+                <input type="checkbox" name="task" id="work">
+                <label for="work"><%= t.task %></label>
+                <button class="del">Delete Task</button>
+            </form>
+        </div>
+    <% } %>
+    
+</body>
+</html>
